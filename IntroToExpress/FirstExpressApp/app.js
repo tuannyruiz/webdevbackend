@@ -22,10 +22,13 @@ app.get("/dog", function(req, res) {
 // ROUTE PARAMS
 
 app.get("/r/:subredditName", function(req, res) { // WE PUT A COLON IN FRONT OF WHATEVER WE WANT TO TURN INTO A VARIABLE
-    res.send("Welcome to a subreddit!");
+    var subreddit = req.params.subredditName;
+    console.log(req.params);
+    res.send("WELCOME TO THE " + subreddit.toUpperCase() + ' SUBREDDIT!');
 })
 
 app.get("/r/:subredditName/comments/:id/:title", function(req, res) { // WE PUT A COLON IN FRONT OF WHATEVER WE WANT TO TURN INTO A VARIABLE
+    console.log(req.params);
     res.send("Welcome to the comment's page");
 })
 
