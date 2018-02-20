@@ -19,6 +19,16 @@ app.get("/dog", function(req, res) {
     res.send("Woof!");
 });
 
+// ROUTE PARAMS
+
+app.get("/r/:subredditName", function(req, res) { // WE PUT A COLON IN FRONT OF WHATEVER WE WANT TO TURN INTO A VARIABLE
+    res.send("Welcome to a subreddit!");
+})
+
+app.get("/r/:subredditName/comments/:id/:title", function(req, res) { // WE PUT A COLON IN FRONT OF WHATEVER WE WANT TO TURN INTO A VARIABLE
+    res.send("Welcome to the comment's page");
+})
+
 app.get("*", function(req, res) {
     res.send("You are a star!");
 }); //STAR ROUTE ALWAYS IN THE END OF THE CODE BECAUSE ROUTE ORDER MATTERS!!!
