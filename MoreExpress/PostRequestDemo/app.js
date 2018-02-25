@@ -12,14 +12,14 @@ app.get("/", function(req, res) {
     res.render("home");
 });
 
-app.get("/friends", function(req, res) {
-    res.render("friends", {friends: friends}); // The second "friends" is the var declared in this app.get
-});
-
 app.post("/addfriend", function(req, res) {
    var newFriend = req.body.newfriend; //newfriend is the 'name' of the input we're getting the data from
    friends.push(newFriend);
-    res.send("You have reached the post route");
+    res.redirect("/friends");
+});
+
+app.get("/friends", function(req, res) {
+    res.render("friends", {friends: friends}); // The second "friends" is the var declared in this app.get
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
